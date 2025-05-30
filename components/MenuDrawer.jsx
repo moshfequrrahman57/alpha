@@ -31,7 +31,7 @@ function MenuDrawer() {
      useEffect(() => {
 
          const get_break_point=()=>{
-          
+
       const breakpoints={
          'xs': '(max-width: 639px)',
     'sm': '(min-width: 640px) and (max-width: 767px)',
@@ -98,7 +98,7 @@ function MenuDrawer() {
                 
                     onClick={expand_demos} 
                 >
-                <span className="text-2xl font-bold md:text-base hover:text-orange-200 " 
+                <span className="text-2xl font-bold md:text-base hover:text-violet-500 " 
                 onMouseOver={expand_demos} onMouseOut={expand_demos}
                 >Demos</span>
                 <Image
