@@ -7,8 +7,31 @@ import Image from 'next/image';
 function MenuDrawer() {
 
 
-    const get_break_point=()=>{
+     const [windowResized,setWindowResized]=useState(null);
 
+
+      
+    const menu_button=useRef();
+    const menu_link=useRef();
+    const list_div=useRef();
+   
+   const [isOpen,setIsOpen]=useState(false);
+    const drawer=()=>{
+           setIsOpen(!isOpen);
+    }
+
+    const [isDemosOpen,setDemosOpen]=useState(false);
+    const expand_demos=()=>{
+      setDemosOpen(!isDemosOpen);
+    }
+
+
+
+
+     useEffect(() => {
+
+         const get_break_point=()=>{
+          
       const breakpoints={
          'xs': '(max-width: 639px)',
     'sm': '(min-width: 640px) and (max-width: 767px)',
@@ -32,28 +55,8 @@ function MenuDrawer() {
 
     }
 
-    const [windowResized,setWindowResized]=useState(window.innerWidth);
 
 
-      
-    const menu_button=useRef();
-    const menu_link=useRef();
-    const list_div=useRef();
-   
-   const [isOpen,setIsOpen]=useState(false);
-    const drawer=()=>{
-           setIsOpen(!isOpen);
-    }
-
-    const [isDemosOpen,setDemosOpen]=useState(false);
-    const expand_demos=()=>{
-      setDemosOpen(!isDemosOpen);
-    }
-
-
-
-
-     useEffect(() => {
        get_break_point();
        function handleSize(){
           setWindowResized(window.innerWidth);
@@ -93,9 +96,11 @@ function MenuDrawer() {
               >
                 <div  className='flex justify-between items-center relative bg-red-400 cursor-pointer'
                 
-                    onClick={expand_demos} onMouseOver={expand_demos} onMouseOut={expand_demos}
+                    onClick={expand_demos} 
                 >
-                <span className="text-2xl font-bold md:text-base hover:text-orange-200 ">Demos</span>
+                <span className="text-2xl font-bold md:text-base hover:text-orange-200 " 
+                onMouseOver={expand_demos} onMouseOut={expand_demos}
+                >Demos</span>
                 <Image
                   src="/dropdown-arrow-svgrepo-com.svg"
                   width={50}
