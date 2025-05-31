@@ -22,15 +22,21 @@ function MenuDrawer() {
 
     const [isDemosOpen,setDemosOpen]=useState(false);
     const expand_demos=()=>{
-      setDemosOpen(!isDemosOpen);
+      setDemosOpen(isDemosOpen=> !isDemosOpen);
+      setProductOpen(false);
+      setCompanyOpen(false);
     }
  const [isProductOpen,setProductOpen]=useState(false);
     const expand_product=()=>{
-      setProductOpen(!isProductOpen);
+      setProductOpen(isProductOpen=> !isProductOpen);
+      setDemosOpen(false);
+      setCompanyOpen(false);
     }
  const [isCompanyOpen,setCompanyOpen]=useState(false);
     const expand_company=()=>{
-      setCompanyOpen(!isCompanyOpen);
+      setCompanyOpen(isCompanyOpen => !isCompanyOpen);
+      setDemosOpen(false);
+      setProductOpen(false);
     }
 
 
