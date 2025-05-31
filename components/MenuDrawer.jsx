@@ -21,21 +21,21 @@ function MenuDrawer() {
     }
 
     const [isDemosOpen,setDemosOpen]=useState(false);
-    const expand_demos=()=>{
-      setDemosOpen(isDemosOpen=> !isDemosOpen);
-      setProductOpen(false);
+    const expand_demos= async ()=>{
+     await setDemosOpen(isDemosOpen=> !isDemosOpen);
+     await setProductOpen(false);
       setCompanyOpen(false);
     }
  const [isProductOpen,setProductOpen]=useState(false);
-    const expand_product=()=>{
-      setProductOpen(isProductOpen=> !isProductOpen);
-      setDemosOpen(false);
+    const expand_product= async ()=>{
+    await  setProductOpen(isProductOpen=> !isProductOpen);
+     await setDemosOpen(false);
       setCompanyOpen(false);
     }
  const [isCompanyOpen,setCompanyOpen]=useState(false);
-    const expand_company=()=>{
-      setCompanyOpen(isCompanyOpen => !isCompanyOpen);
-      setDemosOpen(false);
+    const expand_company=async ()=>{
+     await setCompanyOpen(isCompanyOpen => !isCompanyOpen);
+     await setDemosOpen(false);
       setProductOpen(false);
     }
 
