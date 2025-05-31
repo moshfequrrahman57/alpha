@@ -103,9 +103,9 @@ function MenuDrawer() {
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
          
           `}>
-            <div ref={list_div} className='flex flex-col md:flex-row  gap-4 pt-10 pl-10 md:pt-0 md:pl-0'>
+            <div ref={list_div} className='flex flex-col md:flex-row  gap-0 pt-10 pl-10 md:pt-0 md:pl-0 bg-pink-500'>
             
-              <div  id="demos_div" className='md:relative'>
+              <div  id="demos_div" className='md:relative h-fit'>
                 <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
                 
                     onClick={expand_demos} 
@@ -120,8 +120,8 @@ function MenuDrawer() {
                   alt="Logo"
                   />
                 </div>
-                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 
-                ${isDemosOpen ? 'flex flex-col':'hidden'}
+                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 transition-all  duration-700
+                ${isDemosOpen ? ' h-40':'h-0 md:hidden '}  
                 `}
                  
                 >
@@ -136,7 +136,7 @@ function MenuDrawer() {
               </div>
             
              
-               <div id='product_div' className='md:relative' >
+               <div id='product_div' className='md:relative h-fit' >
                 <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
                 
                     onClick={expand_product} 
@@ -151,8 +151,8 @@ function MenuDrawer() {
                   alt="Logo"
                   />
                 </div>
-                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 
-                ${isProductOpen ? 'flex flex-col':'hidden'}
+                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 transition-all  duration-700
+                ${isProductOpen ? 'h-52':'h-0 md:hidden'}  
                 `}
                  
                 >
@@ -166,8 +166,7 @@ function MenuDrawer() {
 
               </div>
             
-            
-             <div id='company_div' className='md:relative' >
+                <div id='company_div' className='md:relative h-fit' >
                 <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
                 
                     onClick={expand_company} 
@@ -182,8 +181,8 @@ function MenuDrawer() {
                   alt="Logo"
                   />
                 </div>
-                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 
-                ${isCompanyOpen ? 'flex flex-col':'hidden'}
+                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 transition-all  duration-700
+                ${isCompanyOpen ? 'h-52':'h-0 md:hidden'}  
                 `}
                  
                 >
@@ -192,23 +191,21 @@ function MenuDrawer() {
                   <li>Our Team</li>
                   <li>Services</li>
                   <li>Career</li>
-                  <li>Contact Us</li>
-                  
+                   <li>Contact us</li>
                 </ul>
 
               </div>
             
-             
-              <li  className="text-white text-2xl md:text-base font-semibold underline-offset-4 underline
-              hover:font-extrabold hover:no-underline hover:text-orange-200 "
-              onClick={drawer}
-              >Show Cases</li>
-
+      
+            
                   <li  className="text-white text-2xl md:text-base font-semibold underline-offset-4 underline
+                  bg-red-400
                hover:font-extrabold hover:no-underline hover:text-orange-200 "
               onClick={drawer}
               >All Pages</li>
-            <button ref={menu_button} className='btn btn-success rounded-full' >Get Started</button>
+           <div className='h-40 bg-amber-400'>
+             <button ref={menu_button} className='btn btn-success rounded-full' >Get Started</button>
+           </div>
             </div>
           
           </ul>
