@@ -24,11 +24,19 @@ function MenuDrawer() {
     const expand_demos=()=>{
       setDemosOpen(!isDemosOpen);
     }
-
-
+ const [isProductOpen,setProductOpen]=useState(false);
+    const expand_product=()=>{
+      setProductOpen(!isProductOpen);
+    }
+ const [isCompanyOpen,setCompanyOpen]=useState(false);
+    const expand_company=()=>{
+      setCompanyOpen(!isCompanyOpen);
+    }
 
 
      useEffect(() => {
+
+      console.log(isDemosOpen,isProductOpen,isCompanyOpen);
 
          const get_break_point=()=>{
 
@@ -91,10 +99,8 @@ function MenuDrawer() {
           `}>
             <div ref={list_div} className='flex flex-col md:flex-row  gap-4 pt-10 pl-10 md:pt-0 md:pl-0'>
             
-              <div 
-             
-              >
-                <div  className='flex justify-between items-center relative bg-red-400 cursor-pointer'
+              <div  id="demos_div" className='md:relative'>
+                <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
                 
                     onClick={expand_demos} 
                 >
@@ -124,16 +130,67 @@ function MenuDrawer() {
               </div>
             
              
-              <li  className="text-white text-2xl md:text-base font-semibold underline-offset-4 underline
-              hover:font-extrabold hover:no-underline hover:text-orange-200 "
-              onClick={drawer}
-              >Product Features</li>
+               <div id='product_div' className='md:relative' >
+                <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
+                
+                    onClick={expand_product} 
+                >
+                <span className="text-2xl font-bold md:text-base hover:text-violet-500 " 
+                onMouseOver={expand_product} onMouseOut={expand_product}
+                >Product Features</span>
+                <Image
+                  src="/dropdown-arrow-svgrepo-com.svg"
+                  width={50}
+                  height={50}
+                  alt="Logo"
+                  />
+                </div>
+                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 
+                ${isProductOpen ? 'flex flex-col':'hidden'}
+                `}
+                 
+                >
+                  <li>Features</li>
+                  <li>Compare</li>
+                  <li>Pricing</li>
+                  <li>Reviews</li>
+                  <li>Get Support</li>
+                  
+                </ul>
+
+              </div>
             
             
-              <li className="text-white text-2xl md:text-base font-semibold underline-offset-4 underline
-              hover:font-extrabold hover:no-underline hover:text-orange-200 "
-              onClick={drawer}
-              >Company</li>
+             <div id='company_div' className='md:relative' >
+                <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
+                
+                    onClick={expand_company} 
+                >
+                <span className="text-2xl font-bold md:text-base hover:text-violet-500 " 
+                onMouseOver={expand_company} onMouseOut={expand_company}
+                >Company</span>
+                <Image
+                  src="/dropdown-arrow-svgrepo-com.svg"
+                  width={50}
+                  height={50}
+                  alt="Logo"
+                  />
+                </div>
+                <ul className={`md:absolute md:top-14 md:left-0 bg-green-300 
+                ${isCompanyOpen ? 'flex flex-col':'hidden'}
+                `}
+                 
+                >
+                  <li>About Us</li>
+                  <li>Why Choose Us</li>
+                  <li>Our Team</li>
+                  <li>Services</li>
+                  <li>Career</li>
+                  <li>Contact Us</li>
+                  
+                </ul>
+
+              </div>
             
              
               <li  className="text-white text-2xl md:text-base font-semibold underline-offset-4 underline
