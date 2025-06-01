@@ -14,6 +14,8 @@ function MenuDrawer() {
     const menu_button=useRef();
     const menu_link=useRef();
     const list_div=useRef();
+    const demos_list_div=useRef();
+    const all_pages_list=useRef();
    
    const [isOpen,setIsOpen]=useState(false);
     const drawer=()=>{
@@ -24,26 +26,36 @@ function MenuDrawer() {
     const expand_demos= async ()=>{
      await setDemosOpen(isDemosOpen=> !isDemosOpen);
      await setProductOpen(false);
-      setCompanyOpen(false);
+     await setCompanyOpen(false);
+     setAllPagesOPen(false);
     }
  const [isProductOpen,setProductOpen]=useState(false);
     const expand_product= async ()=>{
     await  setProductOpen(isProductOpen=> !isProductOpen);
      await setDemosOpen(false);
-      setCompanyOpen(false);
+    await  setCompanyOpen(false);
+    setAllPagesOPen(false);
     }
  const [isCompanyOpen,setCompanyOpen]=useState(false);
     const expand_company=async ()=>{
      await setCompanyOpen(isCompanyOpen => !isCompanyOpen);
      await setDemosOpen(false);
-      setProductOpen(false);
+     await setProductOpen(false);
+      setAllPagesOPen(false);
     }
+  const [isAllPagesOpen,setAllPagesOPen]=useState(false);
+     const expand_all_pages= async ()=>{
+      await setAllPagesOPen(isAllPagesOpen => !isAllPagesOpen);
+      await setDemosOpen(false);
+      await setProductOpen(false);
+      setCompanyOpen(false);
+     }
 
+  
 
      useEffect(() => {
-
-      console.log(isDemosOpen,isProductOpen,isCompanyOpen);
-
+      const clone_demos=demos_list_div.current.cloneNode(true);
+      all_pages_list.current.appendChild(clone_demos);
          const get_break_point=()=>{
 
       const breakpoints={
@@ -59,6 +71,7 @@ function MenuDrawer() {
             if(breakpoint==='md' || breakpoint==='lg' || breakpoint==='xl'){
               console.log("Hello Medium Device");
               menu_link.current.appendChild(menu_button.current);
+              
             }
             else if(breakpoint==='xs' || breakpoint==='sm'){
               console.log("device is xs and sm");
@@ -79,6 +92,9 @@ function MenuDrawer() {
          window.addEventListener('resize',handleSize);
          console.log(`wind widhth: ${windowResized}`);
          return ()=> window.removeEventListener("resize",handleSize);
+
+
+         
 
       }, [windowResized]);
 
@@ -105,7 +121,7 @@ function MenuDrawer() {
           `}>
             <div ref={list_div} className='flex flex-col md:flex-row  gap-0 pt-10 pl-10 md:pt-0 md:pl-0 bg-pink-500'>
             
-              <div  id="demos_div" className='md:relative h-fit'>
+              <div   className='md:relative h-fit' >
                 <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
                 
                     onClick={expand_demos} 
@@ -125,12 +141,14 @@ function MenuDrawer() {
                 `}
                  
                 >
+                  <div ref={demos_list_div} >
                   <li>Home 1</li>
                   <li>Home 2</li>
                   <li>Home 3</li>
                   <li>Home 4</li>
                   <li>Home 5</li>
                   <li>Home 6</li>
+                  </div>
                 </ul>
 
               </div>
@@ -197,13 +215,35 @@ function MenuDrawer() {
               </div>
             
       
-            
-                  <li  className="text-white text-2xl md:text-base font-semibold underline-offset-4 underline
-                  bg-red-400
-               hover:font-extrabold hover:no-underline hover:text-orange-200 "
-              onClick={drawer}
-              >All Pages</li>
-           <div className='h-40 bg-amber-400'>
+              <div  className='md:relative h-fit' >
+                <div  className='flex justify-between items-center  bg-red-400 cursor-pointer'
+                
+                    onClick={expand_all_pages} 
+                >
+                <span className="text-2xl font-bold md:text-base hover:text-violet-500 " 
+                onMouseOver={expand_all_pages} onMouseOut={expand_all_pages}
+                >All Pages</span>
+                <Image
+                  src="/dropdown-arrow-svgrepo-com.svg"
+                  width={50}
+                  height={50}
+                  alt="Logo"
+                  />
+                </div>
+                <ul ref={all_pages_list} className={`md:absolute md:top-14 md:left-0 bg-green-300 transition-all  duration-700
+                ${isAllPagesOpen ? 'h-52':'h-0 md:hidden'}  
+                `}
+                 
+                >
+                  
+                </ul>
+
+              </div>
+              
+              
+
+
+           <div className='h-40 md:h-fit bg-amber-400'>
              <button ref={menu_button} className='btn btn-success rounded-full' >Get Started</button>
            </div>
             </div>
