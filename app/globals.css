@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+
+.animation_before{
+        @apply translate-y-0  opacity-100 duration-[600ms] transition-all;
+    }
+    .anim{
+        @apply -translate-y-16 opacity-100;
+    }
