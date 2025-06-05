@@ -39,7 +39,7 @@ const HeroSection = () => {
     return (
         <div  >
             <div id='top_title' className='animation_before'>
-                 <h1 className=' px-10 py-20 pb-6 font-bold
+                 <h1 className=' px-10 py-20 pt-40 pb-6 font-bold
            text-5xl md:px-30 md:pt-50 md:pb-8 md:font-extrabold text-center bg-green-200 '>Elevate your experience -<br/> download our app today</h1> 
            <h5 className='px-9 md:px-20  
            text-center text-xl font-medium text-gray-400'>Unlock a world of convenience and innovation by downloading our app.</h5>

@@ -1,9 +1,20 @@
-import React from 'react';
+'use client'
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 const HeroSectionMobile = () => {
+
+    // useEffect(()=>{
+    //     (
+    //         ()=>{
+            
+
+    //         }
+    //     )()
+    // },[])
+
     return (
-        <div className='flex flex-col gap-y-5 md:flex-row items-center justify-center md:mx-20 my-10'>
+        <div id='top_mobile' className='flex flex-col gap-y-5 md:flex-row items-center justify-center md:mx-20 my-10'>
             
             <div className='flex flex-col md:gap-y-40 mx-8 gap-y-5'>
              <div className='flex flex-col items-center justify-center'>
