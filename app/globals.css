@@ -18,7 +18,7 @@
     }
 
     .animation_before3{
-     @apply -translate-y-8 opacity-100 duration-1000 transition-all;   
+     @apply md:-translate-y-8 opacity-100 duration-1000 transition-all;   
     }
 
     .anim3{
