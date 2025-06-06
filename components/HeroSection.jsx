@@ -6,7 +6,7 @@ import HeroSectionMobile from './HeroSectionMobile';
 const HeroSection = () => {
 
 
-    const [isIntersect,setIntersect]=useState(false);
+ 
 
     useEffect(()=>{
         (
@@ -15,21 +15,19 @@ const HeroSection = () => {
 
               //  console.log(item.outerHTML);
                 const observer= new IntersectionObserver((items)=>{
-                    items.forEach((item,observer)=>{
+                    items.forEach((item)=>{
                       if(item.isIntersecting ){
-                            console.log("Intersecting");
+                       
+                             console.log("Intersecting");
                             item.target.classList.add('anim');
-                            
-                        }
-                        else{
-                            console.log('Not  intersecting');
-                            item.target.classList.remove('anim');
+                            observer.unobserve(element);
                         }
                     }, )
                 },{threshold:0.1});
 
-                observer.observe(element);
-                setTimeout(()=>{observer.unobserve(element)},700);
+          
+            observer.observe(element);                
+                
 
             }
         )()

@@ -8,3 +8,26 @@
     .anim{
         @apply -translate-y-16 opacity-100;
     }
+
+    .animation_before2{
+     @apply -translate-x-16 opacity-100 duration-1000 transition-all;   
+    }
+
+    .anim2{
+        @apply translate-x-0 opacity-100;
+    }
+
+    .animation_before3{
+     @apply -translate-y-8 opacity-100 duration-1000 transition-all;   
+    }
+
+    .anim3{
+        @apply translate-y-0 opacity-100;
+    }
+    .animation_before4{
+     @apply translate-x-16 opacity-100 duration-1000 transition-all;   
+    }
+
+    .anim4{
+        @apply translate-x-0 opacity-100;
+    }
