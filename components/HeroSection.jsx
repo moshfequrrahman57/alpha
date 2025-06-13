@@ -2,6 +2,8 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import HeroSectionMobile from './HeroSectionMobile';
+import Link from 'next/link';
+
 
 const HeroSection = () => {
 
@@ -56,6 +58,11 @@ const HeroSection = () => {
                   alt="Logo"
                   className='cursor-pointer'
                   />
+            <Link href={`/table`}>
+             <button className='btn btn-secondary'> Data Table</button>
+            </Link>
+          
+            <button className='btn btn-warning'> React PDF</button>
 
            </div>
 
