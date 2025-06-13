@@ -45,7 +45,7 @@ const HeroSection = () => {
            text-center text-xl font-medium text-gray-400'>Unlock a world of convenience and innovation by downloading our app.</h5>
            <div className='flex flex-col md:flex-row items-center justify-center gap-5 my-8'>
 
-            <Image   src="/android download.svg"
+            {/* <Image   src="/android download.svg"
                   width={150}
                   height={50}
                   alt="Logo"
@@ -57,17 +57,28 @@ const HeroSection = () => {
                   height={50}
                   alt="Logo"
                   className='cursor-pointer'
-                  />
-            <Link href={`/table`}>
+                  /> */}
+            <Link href={`/react_table`}>
              <button className='btn btn-secondary'> Data Table</button>
             </Link>
           
-            <button className='btn btn-warning'> React PDF</button>
+          <Link href={`/react_select`}>
+           <button className='btn btn-warning'> React Select</button>
+          </Link>
+
+           <Link href={`/react_pdf`}>
+           <button className='btn btn-error'> React to Pdf</button>
+          </Link>
+
+           <Link href={`/react_package_before`}>
+           <button className='btn btn-info'> React Pakages Before</button>
+          </Link>
+           
 
            </div>
 
             </div>
-         <HeroSectionMobile/>
+         {/* <HeroSectionMobile/> */}
         </div>
     );
 };

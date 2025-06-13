@@ -663,7 +663,7 @@ const customStyles = {
     return (
         <div className='flex flex-col items-center '>
         <h1 className='text-3xl text-center w-1/2 mt-24  bg-red-100'>React Data Table Component</h1>
-        <div className='flex justify-end  container mt-5'>
+        <div className='flex justify-end container mt-5'>
             <span className=' mx-2'>Filter by name: </span>
              <input placeholder=' name'   type='text' className=' flex  border rounded-sm '
              onChange={handleFilter}/>
